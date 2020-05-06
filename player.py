@@ -1,7 +1,8 @@
 class Player:
 
-    def hit(self):
-        pass
+    def hit(self, card):
+        print(f'{self.name} hits! {card.name}')
+        self.cards[card.name] = card
 
     def stand(self):
         pass
@@ -12,10 +13,12 @@ class Player:
 
     def take_cards(self, cards):
         for card in cards:
+            if 'ace' in card.name:
+                card.card_value = card.ace_define()
             self.cards[card.name] = card
 
     def examine_your_cards(self):
-        pass
+        print(self.cards)
 
     def show_cards(self, cards):
         return f'{self.name}, open cards: {cards}'

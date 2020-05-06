@@ -40,3 +40,5 @@ hand.give_initial_cards(human, comp)
 
 print(comp.show_first_card())
 print(human.show_cards(human.cards))
+
+hand.ask_player(human)
