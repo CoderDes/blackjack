@@ -14,21 +14,24 @@ class Card:
         self.card_value = self.define_value(name)
 
     def define_value(self, card_name):
-        # TODO: Check with type(card_name) == int
+
         if isinstance(card_name, int):
             return int(card_name)
+
         return self.card_values[card_name]
 
     def ace_define(self):
         try:
-            ace_value = int(input('11 or 1? '))
-            if ace_value != 11 or ace_value != 1:
+            ace_value = int(
+                input(f'Your have the {self.name}. Choose it\'s value: 11 or 1? '))
+            if ace_value != 11 and ace_value != 1:
                 raise NumberError('Wrong number!', 'Please, enter 11 or 1.')
-            ace = ace_value
+            return ace_value
         except TypeError:
             print('You entered not a number. Please, try again.')
             self.ace_define()
         except NumberError:
+            print('You entered wrong number. Please, try again.')
             self.ace_define()
         except:
             print('Something went wrong. Try again.')

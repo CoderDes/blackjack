@@ -14,8 +14,8 @@ class Human(Player):
         self.cards = {}
 
 
-class Computer(Player):
-    def __init__(self, name='Computer'):
+class Dealer(Player):
+    def __init__(self, name='Dealer'):
         self.name = name
         self.cards = {}
 
@@ -30,15 +30,15 @@ deck.generate_deck()
 deck.shuffle_deck()
 
 human = Human('Jason', 100)
-comp = Computer()
+dealer = Dealer()
 
 bank = Bank()
 bank.ask_bet(human)
 
-hand = Hand(deck.cards, [human, comp])
-hand.give_initial_cards(human, comp)
+hand = Hand(deck.cards, [human, dealer])
+hand.give_initial_cards(human, dealer)
 
-print(comp.show_first_card())
+print(dealer.show_first_card())
 print(human.show_cards(human.cards))
 
 hand.ask_player(human)

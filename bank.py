@@ -20,6 +20,9 @@ class Bank():
 
             self.bets[player_name] = bet_value
         except NotEnoughtFunds:
+            print('Sorry, you don\'t have enought money. Please, try to low your bet.')
+            self.ask_bet(player)
+        except ValueError:
             self.ask_bet(player)
 
     def check_player_funds(self, player, bet):

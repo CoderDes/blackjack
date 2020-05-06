@@ -2,7 +2,7 @@ class Player:
 
     def hit(self, card):
         print(f'{self.name} hits! {card.name}')
-        self.cards[card.name] = card
+        self.take_cards(card)
 
     def stand(self):
         pass
@@ -12,6 +12,11 @@ class Player:
         return amount
 
     def take_cards(self, cards):
+
+        if not isinstance(cards, list):
+            self.cards[cards.name] = cards
+            return
+
         for card in cards:
             if 'ace' in card.name:
                 card.card_value = card.ace_define()
